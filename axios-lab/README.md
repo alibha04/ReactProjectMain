@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+### Create React project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+npx create-react-app <project name>
+cd <project name>
+```
 
-## Available Scripts
+### install axios
 
-In the project directory, you can run:
+```bash
+npm install axios
+```
 
-### `npm start`
+### Setup a temporary database
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Install the json-server package to hold a json file as the temp db.
+- Install it locally and globally both
+    ```bash
+    npm install -g json-server
+    npm install json-server
+    ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Create a db.json file in the root location of the project and add sample data in it
+    ```json
+    {
+    "persons": [
+        { "id": 1, "name": "Alice", "age": 25 },
+        { "id": 2, "name": "Bob", "age": 30 }
+    ]
+    }
+    ```
 
-### `npm test`
+- Run the db
+    ```bash
+    json-server --watch db.json --port 3001
+    ```
+### Run the application
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Run the db in one tab first and then the application in another tab(by splitting the terminal)
+- After running the db by using " json-server --watch db.json --port 3001",split the terminal
+- in the second terminal run the server by using "npm start"
+- make the server and db public so that they can access each other
 
-### `npm run build`
+## How to solve the "failed to fatch" error
+- if you get an error like this  "failed to fatch" then go to your "PersonList.js" and change the "API-URL" with the URL of your react app(which opens when you run the program)
+- After that copy the URL of your react app and paste it on "API-URL" of "PersonList.js"
+- then make the port number to "3001"
+- then add "persons" after "gitpod.io/"
+- then refresh the react app page to see the output
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### The output looks something like this
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Entry page**
+![alt text](image.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Edit page**
+![alt text](image-1.png)
